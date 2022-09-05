@@ -27,10 +27,9 @@ const friendThree = {
     name: "None"
 }
 
-friends[0] = friendOne;
-friends[1] = friendTwo;
-friends[2] = friendThree;
-
+friends.push(friendOne);
+friends.push(friendTwo);
+friends.push(friendThree);
 
 // --------------------------------------
 // Exercise 3 - Get the index of first occurrence of that value. 
@@ -74,7 +73,7 @@ console.log(diet);
 
 // You really like your daily diet from last exercise. Copy it to a new array called dinnerTray so you can give it to a friend.  
 
-const dinnerTray = diet;
+const dinnerTray = [...diet];
 
 console.log(dinnerTray);
 
@@ -85,9 +84,8 @@ const lettersExpanded = ["a", "b", "c", "d", "e", "f", "g", "h"];
 
 // log every second char in the array starting from b
 
-for (let i = 1; i < lettersExpanded.length; i++) {
+for (let i = 1; i < lettersExpanded.length; i+=2) {
     console.log(lettersExpanded[i]);
-    i++;
 };
 
 // --------------------------------------

@@ -50,7 +50,6 @@ const cIndex = letters[2];
 
 console.log(cIndex);
 
-
 // --------------------------------------
 // Exercise 5 - Replace
 
