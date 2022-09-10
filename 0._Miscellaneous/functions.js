@@ -33,9 +33,16 @@ function genericActionExecuter(annyCallbackFunction, name) {
 // bliver sendt med som et agument i en anden function
 
 
-
 const spitting = (name) => `${name} is spitting.`;
 
-console.log(genericActionExecuter(spitting, "amanda"));
+console.log(genericActionExecuter(spitting, "Amanda"));
+
+
+const shooting = (name) => `${name} is shooting`;
+
+console.log(genericActionExecuter(shooting, "Malte"));
+
+
+console.log(genericActionExecuter((name) => `${name} is running`, "Murat"));
 
 
