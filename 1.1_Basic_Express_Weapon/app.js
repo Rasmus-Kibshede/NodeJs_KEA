@@ -26,6 +26,11 @@ const listOfWeapons = [
     }
 ];
 
+// Finds a weapon from the weaponList
+function findWeaponInList(id) {
+    return listOfWeapons.find(weapon => weapon.id === Number(id));
+};
+
 // Frontpage
 app.get("/", (req, res) =>{
     res.send('Welcome to the weapon frontpage');
@@ -37,11 +42,6 @@ app.get("/weapons", (req, res) =>{
         weapons: listOfWeapons
     });
 });
-
-// Finds a weapon from the weaponList
-function findWeaponInList(id) {
-    return listOfWeapons.find(weapon => weapon.id === Number(id));
-};
 
 // GET | Gets a weapon by weapon id
 app.get("/weapons/:id", (req, res) => {
@@ -57,6 +57,7 @@ app.get("/weapons/:id", (req, res) => {
 
 // POST | Creates a weapon
 app.post("/weapons", (req, res) => {
+    // validte the req body here
     listOfWeapons.push(req.body);
     res.send({
         weapons: listOfWeapons
@@ -82,7 +83,9 @@ app.patch("/weapons/:id", (req, res) => {
     const weapon = findWeaponInList(req.params.id);
 
     // MAKE CODE HERE
+    // Same code as PUT?
 
+    // Return a 200 status code if the weapon got updated
     res.send({
         weapons: listOfWeapons
     });
