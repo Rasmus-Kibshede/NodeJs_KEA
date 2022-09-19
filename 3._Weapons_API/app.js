@@ -41,7 +41,7 @@ app.get("/", (req, res) =>{
 // GET | Gets all weapons
 app.get("/weapons", (req, res) =>{
     res.send({
-        weapons: listOfWeapons
+        data : listOfWeapons
     });
 });
 
@@ -52,7 +52,7 @@ app.get("/weapons/:id", (req, res) => {
         res.send("can't find weapon with id: " + req.params.id);        
     }else{
         res.send({
-            weapons: weapon
+            data : weapon
         });
     }
 });
@@ -69,7 +69,7 @@ app.post("/weapons", (req, res) => {
 
     listOfWeapons.push(weapon);
     res.send({
-        weapons: listOfWeapons
+        data : listOfWeapons
     });
 });
 
@@ -83,7 +83,7 @@ app.put("/weapons/:id", (req, res) => {
     };
 
     res.send({
-        weapons: listOfWeapons
+        data : listOfWeapons
     });
 });
 
@@ -91,13 +91,21 @@ app.put("/weapons/:id", (req, res) => {
 app.patch("/weapons/:id", (req, res) => {
     const weapon = findWeaponInList(req.params.id);
 
-    // MAKE CODE HERE
-    // Same code as PUT?
+    const weaponIndex = listOfWeapons.indexOf(weapon);
 
-    // Return a 200 status code if the weapon got updated
+    if (weaponIndex !== -1) {
+    const weaponToUpdate = {...weapon, ...req.body, id: Number(req.params.id)};
+
     res.send({
-        weapons: listOfWeapons
+        data : weaponToUpdate
     });
+
+    } else {
+        res.status(404).send({
+            data : undefined,
+            message: `No weapon found by id: ${req.params.id}`
+        });
+    }
 });
 
 
@@ -111,12 +119,12 @@ app.delete("/weapons/:id", (req, res) => {
         const deletedWeapon = listOfWeapons.splice(weaponIndex, 1);
 
         res.send({
-            weapon: deletedWeapon
+            data : deletedWeapon
         });        
     }
     else{
         res.status(404).send({
-            weapon: undefined,
+            data : undefined,
             message: `No weapon found by id: ${req.params.id}`
         });
     }
