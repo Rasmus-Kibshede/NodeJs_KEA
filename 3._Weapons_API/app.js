@@ -6,6 +6,8 @@ const app = express();
 
 app.use(express.json());
 
+let weaponCountId = 3;
+
 //Makes a list of weapons
 const listOfWeapons = [
     {
@@ -58,7 +60,14 @@ app.get("/weapons/:id", (req, res) => {
 // POST | Creates a weapon
 app.post("/weapons", (req, res) => {
     // validte the req body here
-    listOfWeapons.push(req.body);
+
+    const weapon = req.body;
+    // weapon.id = listOfWeapons[listOfWeapons.length].id++;
+
+    // plus plus for variablen for at opdatere på linjen med det samme
+    weapon.id = ++weaponCountId;
+
+    listOfWeapons.push(weapon);
     res.send({
         weapons: listOfWeapons
     });
