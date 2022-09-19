@@ -57,23 +57,6 @@ app.get("/weapons/:id", (req, res) => {
     }
 });
 
-
-const weekdays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-// console.log(weekdays[]);
-
-app.get("/dates", (res, req) => {
-
-const date = new Date();
-
-    res.send({
-        day : weekdays[date.getDate()]
-    });
-
-});
-
-
-
-
 // POST | Creates a weapon
 app.post("/weapons", (req, res) => {
     // validte the req body here
