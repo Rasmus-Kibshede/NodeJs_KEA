@@ -104,11 +104,23 @@ app.patch("/weapons/:id", (req, res) => {
 // DELETE | Removes a weapon by id
 app.delete("/weapons/:id", (req, res) => {
     const weapon = findWeaponInList(req.params.id);
-    listOfWeapons.splice(listOfWeapons.indexOf(weapon), 1);
+    const weaponIndex = listOfWeapons.indexOf(weapon);
 
-    res.send({
-        weapons: listOfWeapons
-    });
+    if (weaponIndex !== -1) {
+
+        const deletedWeapon = listOfWeapons.splice(weaponIndex, 1);
+
+        res.send({
+            weapon: deletedWeapon
+        });        
+    }
+    else{
+        res.status(404).send({
+            weapon: undefined,
+            message: `No weapon found by id: ${req.params.id}`
+        });
+    }
+
 });
 
 
