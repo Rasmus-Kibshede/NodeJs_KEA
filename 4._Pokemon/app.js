@@ -22,7 +22,7 @@ const pokemon = [
 
 
 app.get("/", (req, res)=>{
-    res.sendFile(path.resolve("public/frontpage.html"));
+    res.sendFile(path.resolve("public/index.html"));
 });
 
 app.get("/pokemon", (req, res) => {
