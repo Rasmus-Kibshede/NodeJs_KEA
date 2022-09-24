@@ -21,7 +21,7 @@ app.get("/dates", (req, res) => {
     const month = months[date.getMonth()]; 
     const year = date.getFullYear();
 
-    /*
+    
     res.send({
         date: date.toLocaleString(),
         day: day,
@@ -30,21 +30,21 @@ app.get("/dates", (req, res) => {
         hour: date.getHours(),
         minut: date.getMinutes(),
         seconds: date.getSeconds(),
-        string:  day + " " + date.getDay() + " " + month + " " + year
+        dateString:  day + " " + date.getDay() + " " + month + " " + year
     });
- */
+ 
 
     
-    res.send({
+    /*res.send({
         date: date.toLocaleString(),
         day: day,
         month: month,
         year: year,
-        hour: 11,
+        hour: 23,
         minut: date.getMinutes(),
         seconds: date.getSeconds(),
-        string:  day + " " + date.getDay() + " " + month + " " + year
-    });
+        dateString:  day + " " + date.getDay() + " " + month + " " + year
+    });*/
     
     
 });
