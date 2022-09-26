@@ -21,27 +21,27 @@ const pokemon = [
 ];
 
 
-app.get("/", (req, res)=>{
-    res.sendFile(path.resolve("public/index.html"));
+app.get("/", (req, res) => {
+    res.sendFile(path.resolve("public/frontpage/index.html"));
 });
 
-app.get("/pokemon", (req, res) => {
-    res.send({
-        data : pokemon
-    });
+app.get("/api/pokemon", (req, res) => {
+    fetch("https://pokeapi.co/api/v2/pokemon/")
+        .then(resolve => resolve.json())
+        .then(result => {
+            res.send({
+                data: result
+            });
+        });
 });
 
+app.get("/battle", (req, res) => {
+    res.sendFile(path.resolve("public/battle/battle.html"));
+});
 
+const PORT = process.env.PORT || 8080;
 
-
-
-
-
-
-
-
-
-app.listen(8080, (error) => {
-    console.log(error);
-    console.log("The server is running on port", 8080)
+const server = app.listen(PORT, (error) => {
+    //console.log(error);
+    console.log("The server is running on port", server.address().port)
 });
