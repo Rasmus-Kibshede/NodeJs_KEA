@@ -12,13 +12,13 @@ const app = express();
 
 //route     //callback function
 app.get("/", (request, response) => {
-    response.send({message: "Created my first route. Check."});
+    response.send({ message: "Created my first route. Check." });
 });
 
 
-        //endpoint
-app.get("/deers", (req, res) =>{
-    res.send({size: "Big"});
+//endpoint
+app.get("/deers", (req, res) => {
+    res.send({ size: "Big" });
 });
 
 
@@ -26,13 +26,13 @@ app.get("/deers", (req, res) =>{
 app.get("/deers/:id", (req, res) => {
     if (req.params.id === '1') {
         res.send({
-            name : "Bambie",
-            status : "OG"
+            name: "Bambie",
+            status: "OG"
         });
     } else {
         res.send({
-            name : "Another one",
-            status : "Newbie"
+            name: "Another one",
+            status: "Newbie"
         });
     }
 });
@@ -43,6 +43,30 @@ app.get("/actors", (req, res) => {
     res.send({
         message: "Information about the actor",
         ...req.query
+    });
+});
+
+// query parameters (query string)
+// /cups?key=value&key2=value2
+
+//Redirect server site
+app.get("/lookunderbed", (req, res) => {
+    if (req.query.flashlight) {
+        res.redirect("/flashlight");
+    } else {
+        res.redirect("/monsters");
+    }
+});
+
+app.get("/monsters", (req, res) => {
+    res.send({
+        data: "Ohhhh, scary monsters! RUN!"
+    });
+});
+
+app.get("/flashlight", (req, res) => {
+    res.send({
+        data: "The monsters hide from the light, you are save"
     });
 });
 
