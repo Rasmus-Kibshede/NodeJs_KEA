@@ -1,11 +1,10 @@
 import express from "express";
 
+import { renderPage } from "./util/templateEngine.js";
+
 const app = express();
 
 app.use(express.static("public"));
-
-import path from "path";
-
 
 const pokemon = [
     {
@@ -20,9 +19,24 @@ const pokemon = [
     }
 ];
 
+const frontPage = renderPage("/frontpage/index.html", {
+    tabTitle: "pokemon frontpage",
+    cssLink: '<link rel="stylesheet" href="../pages/frontpage/index.css">'
+});
+
+const battlePage = renderPage("/battle/battle.html", {
+    tabTitle: "battle page",
+    cssLink: '<link rel="stylesheet" href="../pages/battle/battle.css">'
+});
+
+const contactPage = renderPage("/contact/contact.html", {
+    tabTitle: "contact page",
+    cssLink: '<link rel="stylesheet" href="../pages/contact/contact.css">'
+});
+
 
 app.get("/", (req, res) => {
-    res.sendFile(path.resolve("public/frontpage/index.html"));
+    res.send(frontPage);
 });
 
 app.get("/api/pokemon", (req, res) => {
@@ -35,8 +49,18 @@ app.get("/api/pokemon", (req, res) => {
         });
 });
 
+
 app.get("/battle", (req, res) => {
-    res.sendFile(path.resolve("public/battle/battle.html"));
+    const randomPokemon = "pikachu";
+    res.redirect(`/battle/${randomPokemon}`);
+});
+
+app.get("/battle/:pokemonName", (req, res) => {
+    res.send(battlePage.replace("%%TITLE%%", `Battle ${req.params.pokemonName}`));
+});
+
+app.get("/contact", (req, res) => {
+    res.send(contactPage);
 });
 
 const PORT = process.env.PORT || 8080;
