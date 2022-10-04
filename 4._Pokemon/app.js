@@ -56,7 +56,7 @@ app.get("/battle", (req, res) => {
 });
 
 app.get("/battle/:pokemonName", (req, res) => {
-    res.send(battlePage.replace("%%TITLE%%", `Battle ${req.params.pokemonName}`));
+    res.send(battlePage.replace("%%TAB_TITLE%%", `Battle ${req.params.pokemonName}`));
 });
 
 app.get("/contact", (req, res) => {
