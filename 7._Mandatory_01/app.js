@@ -1,19 +1,19 @@
 import express from "express";
-import path from "path";
+import { renderPage } from "./util/templateEngine.js";
 
 const app = express();
 
 app.use(express.static("public"));
 
-
-app.get("/", (req, res) => {
-    res.sendFile(path.resolve("public/frontpage/index.html"));
+const frontPage = renderPage("frontpage/index.html", {
+    tabTitle: "Home" ,
+    cssLink: '<link rel="stylesheet" href="../pages/frontpage/index.css">'
 });
 
 
-
-
-
+app.get("/", (req, res) => {
+    res.send(frontPage);
+});
 
 const PORT = process.env.port || 8080;
 
