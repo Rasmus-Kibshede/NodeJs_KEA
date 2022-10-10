@@ -1,12 +1,15 @@
 import express from "express";
 
-import { renderPage } from "./util/templateEngine.js";
+import { renderPage, injectData } from "./util/templateEngine.js";
 
 const app = express();
 
+import pokemonRouter from "./routers/pokemonRoute.js";
+app.use(pokemonRouter);
+
 app.use(express.static("public"));
 
-const pokemon = [
+/* const pokemon = [
     {
         name: "Charmander",
         type: "Fire",
@@ -17,7 +20,9 @@ const pokemon = [
         type: "Electric",
         level: 40
     }
-];
+]; */
+
+// ------------------ Render ------------------
 
 const frontPage = renderPage("/frontpage/index.html", {
     tabTitle: "pokemon frontpage",
@@ -34,30 +39,28 @@ const contactPage = renderPage("/contact/contact.html", {
     cssLink: '<link rel="stylesheet" href="../pages/contact/contact.css">'
 });
 
+// ------------------ GET ------------------
 
 app.get("/", (req, res) => {
     res.send(frontPage);
 });
 
-app.get("/api/pokemon", (req, res) => {
-    fetch("https://pokeapi.co/api/v2/pokemon/")
-        .then(resolve => resolve.json())
-        .then(result => {
-            res.send({
-                data: result
-            });
-        });
-});
 
 
+const randomPokemon = ["pikachu", "slowpoke"];
 app.get("/battle", (req, res) => {
-    const randomPokemon = "pikachu";
-    res.redirect(`/battle/${randomPokemon}`);
+    res.redirect(`/battle/${randomPokemon[Math.floor(Math.random() * randomPokemon.length)]}`);
 });
+
 
 app.get("/battle/:pokemonName", (req, res) => {
-    res.send(battlePage.replace("%%TAB_TITLE%%", `Battle ${req.params.pokemonName}`));
+    const pokemonName = req.params.pokemonName;
+    let battlePageWithData = injectData(battlePage, { pokemonName });
+    /* const listOfNumbers = [1, 2, 3, 4];
+    battlePageWithData = injectData(battlePageWithData, { listOfNumbers }); */
+    res.send(battlePageWithData.replace("%%TAB_TITLE%%", `Battle ${req.params.pokemonName}`));
 });
+
 
 app.get("/contact", (req, res) => {
     res.send(contactPage);

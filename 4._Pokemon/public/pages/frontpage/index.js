@@ -16,6 +16,7 @@ fetch("/api/pokemon")
     result.data.results.forEach(pokemon => {
         //pokemonMap.set(pokemon.name, pokemon);
         //const pTag = document.createElement("p");
+        pokemonMap.set(pokemon.name, pokemon.url);
         const pTag = document.createElement("p");
         pTag.textContent = pokemon.name;
         display_pokemons.appendChild(pTag);

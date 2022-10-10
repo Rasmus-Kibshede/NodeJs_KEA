@@ -1,0 +1,13 @@
+nav {
+    height: 4vh;
+}
+
+
+main{
+    min-height: calc(100vh - 17vh);
+}
+
+
+footer {
+    height: 4vh;
+}
