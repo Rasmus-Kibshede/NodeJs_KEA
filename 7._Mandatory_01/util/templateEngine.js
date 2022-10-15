@@ -9,6 +9,7 @@ export function renderPage(path, options) {
     return header
     .replace("%%TAB_TITLE%%", options.tabTitle || "Page")
     .replace("%%CSS_LINK%%", options.cssLink || "") 
+    .replace("%%HEADLINER%%", options.headliner)
     + page 
     + footer;
 

@@ -1,3 +1,29 @@
-main{
-    background-color: red;
+header{
+    border-bottom: solid 1px #84ba64;
+    padding: 10px 0;
 }
+
+header nav{
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+header nav a{
+    width: 10%;
+    margin: 0 auto;
+    text-align: center;
+    display: inline-block;
+    padding: 10px 0;
+    color: #84ba64;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+header nav a:hover{
+    color: #343433;
+    background-color: #84ba64;
+}
+
+
