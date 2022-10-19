@@ -19,11 +19,13 @@ header nav a{
     text-decoration: none;
     font-weight: bold;
     font-size: 20px;
+    text-shadow: black 2px 2px;
 }
 
 header nav a:hover{
     color: #343433;
     background-color: #84ba64;
+    text-shadow: none;
 }
 
 

@@ -1,6 +1,6 @@
 #form_login{
     width: 200px;
-    background-color: lightblue;
+    background-color: white;
     padding: 5px;
     border-radius: 5px;
     font-family: Arial, Helvetica, sans-serif;
@@ -20,11 +20,16 @@
     border-radius: 2px;
 }
 #form_login button{
-    background-color: aliceblue;
+    background-color: black;
     font-size: 15px;
     cursor: pointer;
 }
 
 #form_login button:hover{
-    background-color: antiquewhite;
+    background-color: #84ba64;
+}
+
+#form_login label{
+    background-color: white;
+    color: black;
 }
