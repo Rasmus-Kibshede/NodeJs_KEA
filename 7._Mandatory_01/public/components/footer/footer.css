@@ -1,3 +1,9 @@
 footer{
     border-top: solid 1px #84ba64;
+    padding: 10px 0 0 10px;
+}
+
+footer div{
+   display: grid;
+   justify-content: center;
 }

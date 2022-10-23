@@ -1,0 +1,9 @@
+#frontpage_weeks h2{
+    margin-top: 30px;
+    color: #84ba64;
+    text-shadow: black 2px 2px;
+}
+
+#frontpage_weeks h2 a{
+    margin: 0 0 0 20px;
+}

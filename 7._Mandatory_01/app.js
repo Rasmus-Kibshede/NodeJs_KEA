@@ -21,7 +21,7 @@ app.use(session({
 }));
 
 
-const adminPage = renderPage("adminpage/adminpage.html", {
+const loginPage = renderPage("adminpage/loginpage.html", {
     tabTitle: "Login",
     cssLink: '<link rel="stylesheet" href="../pages/adminpage/adminpage.css">',
     headliner: "Login"
@@ -56,7 +56,7 @@ app.get("/admin", (req, res) => {
         res.send(adminPageLoggedIn);
     } else {
         console.log("Logged out");
-        res.send(adminPage);
+        res.send(loginPage);
     }
 });
 
