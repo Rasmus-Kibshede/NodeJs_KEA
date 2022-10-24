@@ -1,0 +1,34 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Varela Round', sans-serif;
+    background-color: #343433;
+    color: white;
+}
+
+main{
+    width:80%;
+    margin: 0 auto;
+    padding: 10px;
+    min-height: calc(100vh - 17vh);
+}
+
+main h1, h2, h3, h4{
+    text-align: justify;
+    margin: 10px 0;
+}
+
+main div {
+    margin: 50px 0;
+}
+
+h4{
+    font-size: 25px;
+    color: #84ba64;
+}
+
+a:hover{
+    color: #84ba64;
+}
+
+

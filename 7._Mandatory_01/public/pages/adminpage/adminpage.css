@@ -1,0 +1,35 @@
+#form_login{
+    width: 200px;
+    background-color: white;
+    padding: 5px;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0 auto;
+}
+
+#form_login label, input, button{
+    margin: 10px auto;
+    display: block;
+    text-align: center;
+}
+
+#form_login button, input{
+    width: 84%;
+    padding: 5px 0;
+    border: solid 1px black;
+    border-radius: 2px;
+}
+#form_login button{
+    background-color: black;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+#form_login button:hover{
+    background-color: #84ba64;
+}
+
+#form_login label{
+    background-color: white;
+    color: black;
+}
