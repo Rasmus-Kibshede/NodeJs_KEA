@@ -1,5 +1,4 @@
 <script>
-    import { each } from "svelte/internal";
     import Pet from "../Pet/Pet.svelte";
 
     export let child;
