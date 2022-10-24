@@ -31,4 +31,10 @@ a:hover{
     color: #84ba64;
 }
 
+#description ul{
+    margin-left: 20px;
+}
 
+#description li{
+    padding: 5px 0;
+}
