@@ -19,9 +19,16 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
             whoWon.textContent = "I lost";
         }
 
-        setTimeout(() => {
-            
-        }, 3000)
+        const body = {
+            pokemonBattled: result.name,
+            iWon: iWon
+        };
+
+        fetch("/api/battles", {
+            method: "POST",
+            body: JSON.stringify(body),
+            headers: { "Content-type": "application/json" }
+        })
 
     });
 

@@ -3,24 +3,18 @@ import express from "express";
 import { renderPage, injectData } from "./util/templateEngine.js";
 
 const app = express();
+app.use(express.json());
 
 import pokemonRouter from "./routers/pokemonRoute.js";
 app.use(pokemonRouter);
 
-app.use(express.static("public"));
+import battleRouter from "./routers/battleRoute.js";
+app.use(battleRouter.router);
 
-/* const pokemon = [
-    {
-        name: "Charmander",
-        type: "Fire",
-        level: 12
-    },
-    {
-        name: "Pikatu",
-        type: "Electric",
-        level: 40
-    }
-]; */
+import battleResults from "./routers/battleResultsRouter.js"
+app.use(battleResults);
+
+app.use(express.static("public"));
 
 // ------------------ Render ------------------
 
@@ -39,19 +33,25 @@ const contactPage = renderPage("/contact/contact.html", {
     cssLink: '<link rel="stylesheet" href="../pages/contact/contact.css">'
 });
 
+const battleResultsPage = renderPage("/battleResults/battleResults.html", {
+    tabTitle: "Battle results",
+    cssLink: ''
+});
+
 // ------------------ GET ------------------
+
+app.get("/battleResults", (req, res) => {
+    res.send(battleResultsPage);
+});
 
 app.get("/", (req, res) => {
     res.send(frontPage);
 });
 
-
-
 const randomPokemon = ["pikachu", "slowpoke"];
 app.get("/battle", (req, res) => {
     res.redirect(`/battle/${randomPokemon[Math.floor(Math.random() * randomPokemon.length)]}`);
 });
-
 
 app.get("/battle/:pokemonName", (req, res) => {
     const pokemonName = req.params.pokemonName;
@@ -60,7 +60,6 @@ app.get("/battle/:pokemonName", (req, res) => {
     battlePageWithData = injectData(battlePageWithData, { listOfNumbers }); */
     res.send(battlePageWithData.replace("%%TAB_TITLE%%", `Battle ${req.params.pokemonName}`));
 });
-
 
 app.get("/contact", (req, res) => {
     res.send(contactPage);
