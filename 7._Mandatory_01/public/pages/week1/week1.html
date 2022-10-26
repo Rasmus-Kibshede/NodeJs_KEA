@@ -2,7 +2,6 @@
   <ul>
     <li>Intro to Node.js.</li>
     <li>Variables</li>
-    <li>Intro Exercises</li>
     <li>REST API conventions</li>
   </ul>
 </div>
@@ -15,6 +14,32 @@
     <h4>What is node?</h4>
     <p>Node.js is a way to use javaScript in backend and is open source.</p>
     <p>We normaly see that javaScript runs in a browser on clientside and not backend.</p>
+  </div>
+  <div>
+    <h4>How to get startet</h4>
+
+    <p>Im using express for node.</p>
+    <p>Express is a node.js web applikation framework that give many tools to develop with.</p>
+    <br>
+    <p>First we need to make a package.json file and give it dependencies that we wanna use.</p>
+    <p>Then we create a file app.js, that file is where the server starts.</p>
+    <br>
+    <p>When we have a package.json and an app.js files then we can run a command in the terminal: 'npm i' or 'npm
+      install'.</p>
+    <p>Now npm (node package maneger) will install the dependencies from package.json</p>
+
+    <br>
+
+    <p>We have to restart the server ourselves everytime there is a chance. But we can use a tool called nodemon.</p>
+    <p>To install nodemon run the command: 'npm install -g nodemon'.</p>
+    <p>Then we run the command: 'nodemon app.js' instead of 'node app.js'.</p>
+    <img src="../../images/nodemon-start.png" alt="nodemon command via terminal">
+
+    <br>
+    <br>
+    <p>Then we make some code in the app.js file.</p>
+    <p>If we use modules then we imports the express else we use nodes require function</p>
+
   </div>
 </section>
 
@@ -34,21 +59,27 @@
 
       <li>const</li>
       <p>const is used for varibles that does not need to be chanced later on</p>
-      <img src="../../images/nodeconstvariable.png" alt="const variable in javaScript">
 
       <li>var</li>
       <p>var was used before let and const. There fore is var not used so much more.</p>
 
-      
+
     </div>
   </div>
 
 </section>
 
-<section id="exercises">
 
 </section>
 
 <section id="conventions">
+
+  <div>
+    <h4>REST API conventions</h4>
+    <p>The conventions is a followed</p>
+    <p>Written in plural</p>
+    <p>Need to listed in this order: GET, POST, PUT, PATCH, DELETE</p>
+    <img src="../../images/REST-API-Conv.png" alt="">
+  </div>
 
 </section>

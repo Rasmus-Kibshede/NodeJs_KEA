@@ -1,24 +1,50 @@
 <div id="description">
     <ul>
         <li>Environment variables in Node.js</li>
-        <li>Fetching in the frontend</li>
-        <li>Fetching in the backend</li>
         <li>Redirecting</li>
     </ul>
 </div>
 
 <section id="variables_in_node">
+    <div>
+        <h4>Environment variables in Node.js</h4>
 
+        <p>Environment variables provide information about the environment in which the process is running.</p>
+        <p>We can use it for database password or other sensitive data.</p>
+        <p>In the picture below we use environment variables for what port the server listen on.</p>
+        <img src="../../images/env-variable-port.png" alt="Environment variable to get port">
+
+        <br>
+
+        <p>Before we do the above we need to install a tool called cross-env.</p>
+        <p>Cross-env makes it so you can have a single command without worrying about setting or using the environment
+            variable properly for the platform.</p>
+        <p>Cross-env can be installed: 'npm install --save-dev cross-env'</p>
+        <img src="../../images/package-cross-env.png" alt="">
+
+        <br>
+        <p>To define a port in Node.js through the command line then we define the variable as the first.</p>
+        <p>'PORT=2000 nodemon app.js'</p>
+        <img src="../../images/env-command-port.png" alt="">
+    </div>
 </section>
 
-<section id="fetching_frontend">
-
-</section>
-
-<section id="fetching_backend">
-
-</section>
 
 <section id="redirecting">
+    <h4>Redirecting</h4>
+    <p>Redirecting is when we redirect to another location.</p>
+    <p>Redirecting can be done frontend or backend.</p>
+
+    <br>
+    <h5>3 ways to redirect frontend</h5>
+    <p>html a tag</p>
+    <p>javascript window.location</p>
+    <p>Meta data meta http-equiv="refresh" content="time_delay; url=new_url"</p>
+
+    <br>
+
+    <h5>Backend redirecting</h5>
+    <p>Can be done with GET methods.</p>
+    <p>The URL sends a endpoint to the backend that handle it and response with a html file.</p>
 
 </section>

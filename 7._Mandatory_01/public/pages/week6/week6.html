@@ -1,14 +1,42 @@
 <div id="description">
     <ul>
-        <li>A better way to structure a frontend</li>
         <li>CSR vs. SSR</li>
+        <li>SSR</li>
     </ul>
 </div>
 
-<section id="structure_frontend">
+<section id="csr_vs_ssr">
+    <div>
 
+        <h4>SSR VS CSR</h4>
+
+        <h5>SSR</h5>
+        <p>+ SEO (Search Engine Optimization)</p>
+        <p>+ Quick initial access</p>
+        <p>- Server cost</p>
+        <p>- Higher latency</p>
+
+        <br>
+        <h5>CSR</h5>
+        <p>+ Faster page rendering</p>
+        <p>- Lower latency</p>
+        <p>- Quick initial access</p>
+        <p>- SEO (Search Engine Optimization)</p>
+
+    </div>
 </section>
 
-<section id="csr_vs_ssr">
+<section id="ssr">
+    <div>
 
+        <h4>SSR</h4>
+        <br>
+        <p>To make SSR we need to construct html pages in the backend and serve it when the endpoint is called.</p>
+        <p>Because we have to make multiple pages then we make a js file called templateEngine.</p>
+        <p>TemplateEngine will be a file with functions that helps make pages and inject data into the pages.</p>
+        <p>One main thing about the template that we combine nav and footer to the html file, therefore will nav and footer be on every html page.</p>
+
+        <img src="../../images/templateEngine.png" alt="a template for helping tools">
+
+    </div>
 </section>

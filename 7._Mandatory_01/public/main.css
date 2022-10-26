@@ -18,6 +18,11 @@ main h1, h2, h3, h4{
     margin: 10px 0;
 }
 
+main h5{
+    font-size: 17px;
+    color: #84ba64;
+}
+
 main div {
     margin: 50px 0;
 }
