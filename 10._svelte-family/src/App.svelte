@@ -7,11 +7,13 @@
     {
       name: "Flemming",
       isGirl: false,
+      blackSheep: "ultra",
       bright: false,
     },
     {
       name: "Erik",
       isGirl: false,
+      blackSheep: "medium",
       bright: true,
     },
     {

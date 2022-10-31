@@ -21,7 +21,7 @@
 
 <h1>Parent: {name}</h1>
 
-<p on:click={handleEraseFridgeBulletin} on:keydown={() => {}}>
+<p class="erase-fridge-bulletin-p" on:click={handleEraseFridgeBulletin} on:keydown={() => {}}>
     Erase the fridge bulletin
 </p>
 
@@ -35,3 +35,10 @@
         onAlwaysSayHi={handleAlwaysSayHi}
     />
 {/each}
+
+
+<style>
+    .erase-fridge-bulletin-p{
+        
+    }
+</style>
