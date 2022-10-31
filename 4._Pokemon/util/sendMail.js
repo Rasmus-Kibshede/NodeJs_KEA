@@ -3,15 +3,15 @@ import nodemailer from "nodemailer";
 export async function sendMail(mailTo, aboutText) {
   return new Promise(async (resolve, reject) => {
 
-    var transporter = nodemailer.createTransport({
+    const transporter = nodemailer.createTransport({
       service: 'hotmail',
       auth: {
         user: 'keadat2021@hotmail.com',
-        pass: 'V5Pj#fZISd0kCwZL.'
+        pass: process.env.MAILPASSWORD
       }
     });
 
-    var mailOptions = {
+    const mailOptions = {
       from: 'keadat2021@hotmail.com',
       to: mailTo,
       subject: 'Sending Email using Node.js',
