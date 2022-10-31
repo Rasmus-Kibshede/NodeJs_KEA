@@ -2,8 +2,11 @@ import express from "express";
 
 import { renderPage, injectData } from "./util/templateEngine.js";
 
+
 const app = express();
 app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+app.use(express.static("public"));
 
 import pokemonRouter from "./routers/pokemonRoute.js";
 app.use(pokemonRouter);
@@ -14,7 +17,9 @@ app.use(battleRouter.router);
 import battleResults from "./routers/battleResultsRouter.js"
 app.use(battleResults);
 
-app.use(express.static("public"));
+import contactRouter from "./routers/contactRouters.js";
+app.use(contactRouter);
+
 
 // ------------------ Render ------------------
 
