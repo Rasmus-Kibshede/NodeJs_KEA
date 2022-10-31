@@ -2,6 +2,19 @@
   import Home from "./components/Home/Home.svelte";
   import Parent from "./components/Parent/Parent.svelte";
 
+  /*  fetch("http://localhost:8080/api/pokemon")
+    .then((res) => res.json())
+    .then((result) => console.log(result)); */
+
+  /* import { onMount } from "svelte";
+
+  onMount(async () => {
+    const response = await   fetch("http://localhost:8080/api/pokemon");
+    const result = response.json();
+    console.log(result);
+  });
+ */
+
   const parent = ["Kurt", "Katja"];
   const children = [
     {

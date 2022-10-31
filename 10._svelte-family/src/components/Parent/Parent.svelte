@@ -39,6 +39,6 @@
 
 <style>
     .erase-fridge-bulletin-p{
-        
+        user-select: none;
     }
 </style>
