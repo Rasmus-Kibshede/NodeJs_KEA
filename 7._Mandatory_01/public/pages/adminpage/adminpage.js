@@ -5,5 +5,6 @@ buttonLogout.addEventListener('click', logout);
 
 
 function logout() {
+    window.location.href = "/";
     fetch("/logout");
 }
