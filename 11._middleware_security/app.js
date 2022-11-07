@@ -1,6 +1,15 @@
 import express from "express";
 const app = express();
 
+import session from "express-session";
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false }
+}));
+
+
 import helmet from "helmet";
 app.use(helmet());
 
@@ -24,6 +33,9 @@ const limiter = rateLimit({
 
 app.use(limiter);
 
+
+import popcornRouter from "./routers/popcornRouter.js";
+app.use(popcornRouter);
 
 
 /* Middleware funktions */

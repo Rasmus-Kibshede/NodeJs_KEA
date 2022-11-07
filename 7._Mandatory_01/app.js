@@ -16,9 +16,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(session({
     secret: 'secret',
-    resave: true,
-    saveUninitialized: true
-}));
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false }
+  }));
 
 
 const loginPage = renderPage("adminpage/loginpage.html", {
