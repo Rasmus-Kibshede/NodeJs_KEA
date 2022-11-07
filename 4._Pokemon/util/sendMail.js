@@ -1,6 +1,7 @@
 import nodemailer from "nodemailer";
 
 export async function sendMail(mailTo, aboutText) {
+  console.log(process.env.MAILPASSWORD);
   return new Promise(async (resolve, reject) => {
 
     const transporter = nodemailer.createTransport({
