@@ -1,3 +1,8 @@
+// Uses the dotenv package for easy handling of envs
+import dotenv from "dotenv/config";
+// dotenv.config();
+// can be done with dotenv/config or delete config and use dotenv.config()
+
 import express from "express";
 const app = express();
 
@@ -9,6 +14,13 @@ app.use(session({
   cookie: { secure: false }
 }));
 
+console.log(process.env.SESSION_SECRET);
+
+/* 
+// gets a random hex string
+import crypto from "crypto";
+console.log(crypto.randomBytes(16).toString("hex"));
+ */
 
 import helmet from "helmet";
 app.use(helmet());
