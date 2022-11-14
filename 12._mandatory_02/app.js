@@ -1,5 +1,6 @@
 import express from "express";
 const app = express();
+app.use(express.json());
 
 // Session
 import session from "express-session";
@@ -19,6 +20,10 @@ const limiter = rateLimit({
 app.use(limiter);
 
 
+app.post("/login", (req, res, next) => {
+    console.log(req.body);
+    res.send({});
+});
 
 
 
