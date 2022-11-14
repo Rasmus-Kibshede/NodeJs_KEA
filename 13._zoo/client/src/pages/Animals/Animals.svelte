@@ -4,8 +4,9 @@
 
     let animals = [];
 
+    // Virker ikke
     async function fetchAnimals() {
-        const response = await fetch(`${BASE_URL}/api/animals`);
+        const response = await fetch(`${$BASE_URL}/api/animals`);
         const data = await response.json();
         console.log(data);
         animals = data.data;
