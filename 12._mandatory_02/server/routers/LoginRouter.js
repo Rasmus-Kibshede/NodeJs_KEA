@@ -30,7 +30,7 @@ async function loginCheck(req, res, next) {
  router.post("/login", async (req, res) => {
     //console.log(req.body);
 
-    const user = await db.run("SELECT * FROM users WHERE user_email=? AND user_password=?", [req.body.email, req.body.password]);
+    const user = await db.all("SELECT * FROM users WHERE user_email=? AND user_password=?", [req.body.email, req.body.password]);
 
     console.log(user);
 
