@@ -16,10 +16,6 @@ router.post("/api/animals", async (req, res) => {
     const latinName = req.body.latinName || "Unknow";
     const commentName = req.body.commentName;
 
-
-    console.log(commentName);
-    console.log(latinName);
-
     if (!commentName)
         return res.status(400).send({ message: "Commen name not defined" });
 

@@ -7,9 +7,7 @@ const router = Router();
 async function loginCheck(req, res, next) {
 
     /* const user = await db.run("SELECT * FROM users WHERE user_email=? AND user_password=?", [req.body.email, req.body.password]);
-
     console.log(user);
-
     res.status(200).send({ data: user }); */
 
 
