@@ -1,5 +1,7 @@
 <script>
-// @ts-nocheck
+    // @ts-nocheck
+
+    import { BASE_URL, global_user } from "../../store/globals.js";
 
     async function login() {
         const user = {
@@ -7,15 +9,25 @@
             password: document.getElementById("login_password").value,
         };
 
-        let response = await fetch("http://localhost:8080/login", {
+        let response = await fetch(`${$BASE_URL}/login`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json;charset=utf-8",
             },
-            body: JSON.stringify(user)
+            body: JSON.stringify(user),
         });
 
-        response;
+        // checks if the server response with a ok and then sets a global user
+        if (response.ok) {
+            const access = 1;
+            const email = user.email;
+            $global_user = { email, access };
+        }
+
+        //TODO make logout
+        function handleLogout() {
+            $global_user = null;
+        }
     }
 </script>
 
