@@ -1,32 +1,33 @@
 import express from "express";
 const app = express();
-app.use(express.json());
 
 import cors from "cors";
-app.use(cors);
+app.use(cors());
 
-// Session
+app.use(express.json());
+
+// ------------------ Session ------------------ 
 import session from "express-session";
 app.use(session({
-  secret: 'secret',
+  secret: process.env.SESSION_SECRET || "Cat",
   resave: false,
   saveUninitialized: true,
   cookie: { secure: false } //false we are not using https, but http
 }));
 
-// Rate limiter
+
+// ------------------ Routers ------------------ 
+import loginRouter from "./routers/LoginRouter.js";
+app.use(loginRouter);
+
+
+// ------------------ Rate limiter ------------------ 
 import rateLimit from 'express-rate-limit';
 const limiter = rateLimit({
-    windowMs: 10 * 60 * 1000, // 10 minutes
-    max: 80 // number of times before client has to wait 10 min
+  windowMs: 10 * 60 * 1000, // 10 minutes
+  max: 80 // number of times before client has to wait 10 min
 });
 app.use(limiter);
-
-
-app.post("/login", (req, res, next) => {
-    console.log(req.body);
-    res.send({});
-});
 
 
 const PORT = 8080 || process.env.PORT;
