@@ -2,6 +2,9 @@ import express from "express";
 const app = express();
 app.use(express.json());
 
+import cors from "cors";
+app.use(cors);
+
 // Session
 import session from "express-session";
 app.use(session({
@@ -26,8 +29,5 @@ app.post("/login", (req, res, next) => {
 });
 
 
-
-
-
-const PORT = 8080;
+const PORT = 8080 || process.env.PORT;
 app.listen(PORT, () => console.log("The server is running on port", PORT));
