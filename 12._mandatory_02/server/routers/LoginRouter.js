@@ -1,10 +1,16 @@
 import { Router } from "express";
+import db from "../database/connection.js";
+
 const router = Router();
 
 
-function loginCheck(req, res, next) {
-    const email = req.body.email;
-    const password = req.body.password;
+async function loginCheck(req, res, next) {
+
+    /* const user = await db.run("SELECT * FROM users WHERE user_email=? AND user_password=?", [req.body.email, req.body.password]);
+
+    console.log(user);
+
+    res.status(200).send({ data: user }); */
 
 
 
@@ -16,15 +22,19 @@ function loginCheck(req, res, next) {
     req.session.password = password;
     */
 
-    next();
+    //next();
 }
 
 
+//TODO lav check på om user findes og set session med middleware
+ router.post("/login", async (req, res) => {
+    //console.log(req.body);
 
-router.post("/login", loginCheck, (req, res, next) => {
-    console.log(req.body);
-    
-    res.send({ message : `Welcome` });
+    const user = await db.run("SELECT * FROM users WHERE user_email=? AND user_password=?", [req.body.email, req.body.password]);
+
+    console.log(user);
+
+    res.status(200).send({ data: user });
 });
 
 

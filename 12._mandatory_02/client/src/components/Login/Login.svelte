@@ -7,9 +7,6 @@
             password: document.getElementById("login_password").value,
         };
 
-        console.log(user.email);
-
-        // Need a fix for CORS
         let response = await fetch("http://localhost:8080/login", {
             method: "POST",
             headers: {
