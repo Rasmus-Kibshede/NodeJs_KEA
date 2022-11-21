@@ -1,0 +1,14 @@
+Technical requirements:
+    nodemaler
+    notifications
+
+
+Backend:
+    nodemaler
+    encryption
+
+Frontend:
+    Login/Sign out component. (Sign up/Forgot password are optional)
+    Protect your routes
+
+
