@@ -1,6 +1,7 @@
 <script>
     import { useNavigate, useLocation } from "svelte-navigator";
     import { global_user } from "../store/globals.js";
+    import Profile from "./Profile/Profile.svelte";
   
     const navigate = useNavigate();
     const location = useLocation();
@@ -14,6 +15,6 @@
   </script>
   
   {#if $global_user}
-    <slot />
+   <slot/>
   {/if}
   

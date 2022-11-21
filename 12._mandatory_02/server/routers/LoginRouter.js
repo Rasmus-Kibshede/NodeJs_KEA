@@ -24,7 +24,7 @@ async function loginCheck(req, res, next) {
 router.post("/login", async (req, res, next) => {
 
     const user = await db.get("SELECT * FROM users WHERE user_email=? AND user_password=?", [req.body.email, req.body.password]);
-    //console.log(user);
+    // console.log(user);
 
     if (req.session.isLoggedIn) {
         res.status(200).send({ message: `You are already logged in as ${req.body.email}` });

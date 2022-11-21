@@ -1,5 +1,6 @@
 <script>
-    import { global_user } from "../../store/globals.js";
+    import Loguout from "../../components/Logout/Loguout.svelte";
+import { global_user } from "../../store/globals.js";
 
     let email;
 
@@ -9,8 +10,6 @@
 </script>
 
 <h1>Welcome {email}</h1>
-
-
 
 <style>
 </style>

@@ -14,7 +14,8 @@
 
   <div>
     <Route path="/" component={Home} />
-    <PrivateRoute path="/profile" component={Profile} />
+    <PrivateRoute path="/profile" let:location>
+		</PrivateRoute>
     <Route path="login" component={Login} />
   </div>
 </Router>

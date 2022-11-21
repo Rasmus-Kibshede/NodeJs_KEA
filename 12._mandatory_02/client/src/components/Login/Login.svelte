@@ -1,11 +1,17 @@
 <script>
-    // @ts-nocheck
 
     import { BASE_URL, global_user } from "../../store/globals.js";
 
+    import { useNavigate, useLocation } from "svelte-navigator";
+
+	const navigate = useNavigate();
+	const location = useLocation();
+
     async function login() {
         const user = {
+            // @ts-ignore
             email: document.getElementById("login_email").value,
+            // @ts-ignore
             password: document.getElementById("login_password").value,
         };
 
@@ -22,11 +28,9 @@
             const access = 1;
             const email = user.email;
             $global_user = { email, access };
-        }
-
-        //TODO make logout
-        function handleLogout() {
-            $global_user = null;
+            
+            const from = ($location.state && $location.state.from) || "/";
+            navigate(from, { replace: true });
         }
     }
 </script>
