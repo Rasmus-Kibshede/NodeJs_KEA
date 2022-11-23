@@ -3,12 +3,10 @@
     import PrivateRouteGuard from "./PrivateRouteGuard.svelte";
 
     export let path;
-
-    /* $: isAuthenticated = $global_user; */
 </script>
 
 <Route {path} let:params let:location let:navigate>
-	<PrivateRouteGuard>
-		<slot {params} {location} {navigate} />
-	</PrivateRouteGuard>
+    <PrivateRouteGuard>
+        <slot {params} {location} {navigate} />
+    </PrivateRouteGuard>
 </Route>
