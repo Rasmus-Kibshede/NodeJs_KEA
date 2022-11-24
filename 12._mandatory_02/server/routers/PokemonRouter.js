@@ -5,18 +5,9 @@ router.get("/api/pokemon", async (req, res) => {
 
     const response = await fetch("https://pokeapi.co/api/v2/pokemon");
     const result = await response.json();
-    res.send({ characters: result });
+    console.log("Im in the api");
+    res.send({ pokemon: result });
 });
-
-router.get("/api/pokemon", async (req, res) => {
-
-    const response = await fetch("https://pokeapi.co/api/v2/pokemon");
-    const result = await response.json();
-    res.send({ characters: result });
-});
-
-
-
 
 
 
