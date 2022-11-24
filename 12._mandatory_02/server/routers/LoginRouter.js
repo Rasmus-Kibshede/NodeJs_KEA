@@ -9,8 +9,9 @@ router.post("/login", async (req, res, next) => {
 
     if (req.session.isLoggedIn) {
         res.status(200).send({ message: `You are already logged in as ${req.body.email}` });
+    } else {
+        next();
     }
-    next();
 
 }, async (req, res, next) => {
     //Database check
@@ -31,6 +32,12 @@ router.post("/login", async (req, res, next) => {
     req.session.email = req.body.email;
     console.log("session is set");
     res.status(200).send({ message: `Welcome ${req.body.email}` });
+});
+
+router.get("/logout", (req, res) => {
+    req.session.destroy();
+    console.log("session is destroyed");
+    res.send({ message: "logged out" });
 });
 
 

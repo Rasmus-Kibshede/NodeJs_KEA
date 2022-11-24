@@ -5,6 +5,8 @@
   const navigate = useNavigate();
   const location = useLocation();
 
+  //TODO check session backend also, so you can stay loggedin after a page refesh
+
   $: if (!$global_user) {
     navigate("/login", {
       state: { from: $location.pathname },

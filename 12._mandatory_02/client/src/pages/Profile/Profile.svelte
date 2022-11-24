@@ -1,12 +1,14 @@
 <script>
-    import Loguout from "../../components/Logout/Loguout.svelte";
-import { global_user } from "../../store/globals.js";
+    import Loguout from "../../components/Logout/Logout.svelte";
+    import { global_user } from "../../store/globals.js";
 
     let email;
 
-    global_user.subscribe(user => {
-		email = user.email;
-	});
+    $: if (email) {
+        global_user.subscribe((user) => {
+            email = user.email;
+        });
+    }
 </script>
 
 <h1>Welcome {email}</h1>
