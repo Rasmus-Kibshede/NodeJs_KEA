@@ -20,8 +20,8 @@ app.use(session({
 import loginRouter from "./routers/LoginRouter.js";
 app.use(loginRouter);
 
-import charactersRouter from "./routers/CharactersRouter.js";
-app.use(charactersRouter);
+import pokemonRouter from "./routers/PokemonRouter.js";
+app.use(pokemonRouter);
 
 // ------------------ Rate limiter ------------------ 
 import rateLimit from 'express-rate-limit';
