@@ -20,6 +20,8 @@ app.use(session({
 import loginRouter from "./routers/LoginRouter.js";
 app.use(loginRouter);
 
+import charactersRouter from "./routers/CharactersRouter.js";
+app.use(charactersRouter);
 
 // ------------------ Rate limiter ------------------ 
 import rateLimit from 'express-rate-limit';

@@ -12,10 +12,8 @@ router.post("/login", async (req, res, next) => {
     }
     next();
 
-
 }, async (req, res, next) => {
     //Database check
-
     const user = await db.get("SELECT * FROM users WHERE user_email=?", [req.body.email]);
 
     if (user) {
