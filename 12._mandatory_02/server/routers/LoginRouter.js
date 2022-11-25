@@ -1,6 +1,6 @@
 import { Router } from "express";
 import db from "../database/connection.js";
-import { passwordCompare } from "../encryption.js";
+import { passwordCompare } from "../util/encryption.js";
 
 const router = Router();
 

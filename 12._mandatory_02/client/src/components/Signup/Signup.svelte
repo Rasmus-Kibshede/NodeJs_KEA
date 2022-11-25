@@ -1,0 +1,60 @@
+<script>
+    import { BASE_URL } from "../../store/globals.js";
+    import { useNavigate, useLocation } from "svelte-navigator";
+
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    async function signup() {
+        const user = {
+            // @ts-ignore
+            email: document.getElementById("signup_email").value,
+            // @ts-ignore
+            password: document.getElementById("signup_password").value,
+            // @ts-ignore
+            firstname: document.getElementById("signup_firstname").value,
+            // @ts-ignore
+            lastname: document.getElementById("signup_lastname").value,
+            // @ts-ignore
+            age: document.getElementById("signup_age").value,
+        };
+
+        let response = await fetch(`${$BASE_URL}/signup`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json;charset=utf-8",
+            },
+            body: JSON.stringify(user),
+        });
+
+        if (response.ok) {
+            const from = ($location.state && $location.state.from) || "/";
+            navigate(from, { replace: true });
+
+            // @ts-ignore
+            toastr.success("Signed up", "An email has been sendt to you");
+        }
+    }
+</script>
+
+<h1>Signup here</h1>
+
+<label for="signup_email">Email:</label>
+<input type="email" id="signup_email" />
+
+<label for="signup_password">Password:</label>
+<input type="text" id="signup_password" />
+
+<label for="signup_firstname">Firstname:</label>
+<input type="text" id="signup_firstname" />
+
+<label for="signup_lastname">Lastname:</label>
+<input type="text" id="signup_lastname" />
+
+<label for="signup_age">Age:</label>
+<input type="text" id="signup_age" />
+
+<button on:click={signup}>Signup</button>
+
+<style>
+</style>

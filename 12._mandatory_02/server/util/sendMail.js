@@ -3,6 +3,9 @@ import nodemailer from "nodemailer";
 export async function sendMail(mailTo, aboutText) {
   return new Promise(async (resolve, reject) => {
 
+    console.log(mailTo);
+    console.log(aboutText);
+
     const transporter = nodemailer.createTransport({
       service: 'hotmail',
       auth: {

@@ -1,5 +1,5 @@
 <script>
-    import Login from "./components/Login/Login.svelte";
+  import Login from "./components/Login/Login.svelte";
   import { Router, Link, Route } from "svelte-navigator";
   import Home from "./pages/Home/Home.svelte";
   import PrivateRoute from "./pages/PrivateRoute.svelte";
@@ -7,6 +7,7 @@
   import Pokemon from "./pages/Pokemon/Pokemon.svelte";
   import Logout from "./components/Logout/Logout.svelte";
   import Header from "./components/Header/Header.svelte";
+  import Signup from "./components/Signup/Signup.svelte";
 </script>
 
 <Header />
@@ -20,17 +21,16 @@
       <Logout />
     </PrivateRoute>
     <Route path="login" component={Login} />
+    <Route path="/signup" component={Signup} />
   </div>
 </Router>
 
 <!-- <Login /> -->
 <style>
-
-  #content{
+  #content {
     padding: 20px;
-    background: #fff url("https://assets.pokemon.com/static2/_ui/img/chrome/container_bg.png");
+    background: #fff
+      url("https://assets.pokemon.com/static2/_ui/img/chrome/container_bg.png");
     color: black;
   }
-
-
 </style>

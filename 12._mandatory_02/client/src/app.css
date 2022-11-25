@@ -5,6 +5,10 @@ body {
   color: #fff;
   height: 100%;
 }
+*{
+  font-family: 'Secular One', sans-serif;
+}
+
 
 #app {
   max-width: 1280px;

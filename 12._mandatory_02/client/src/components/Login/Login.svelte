@@ -1,7 +1,7 @@
 <script>
     import { BASE_URL, global_user } from "../../store/globals.js";
 
-    import { useNavigate, useLocation } from "svelte-navigator";
+    import { useNavigate, useLocation, Link } from "svelte-navigator";
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -38,7 +38,7 @@
 </script>
 
 <div id="div_login">
-    <h1>This is a login</h1>
+    <h1>Login</h1>
 
     <label for="login_email">Email : </label>
     <input
@@ -56,8 +56,31 @@
         name="password"
         required
     />
-    <button type="submit" on:click={login}>Login</button>
+    <button type="submit" on:click={login} class="button">Login</button>
 </div>
 
+
+<Link to="/signup">Sugnup</Link>
+
+
 <!-- Forgot <a href="/"> password? </a> -->
-<style></style>
+<style>
+    .button {
+        display: inline-block;
+        padding: 0.35em 1.2em;
+        border: 0.1em solid black;
+        margin: 0 0.3em 0.3em 0;
+        border-radius: 0.12em;
+        box-sizing: border-box;
+        text-decoration: none;
+        font-family: "Roboto", sans-serif;
+        font-weight: 300;
+        color: #000;
+        text-align: center;
+        transition: all 0.4s;
+    }
+    .button:hover {
+        color: black;
+        background-image: linear-gradient(to bottom right, red, white);
+    }
+</style>
