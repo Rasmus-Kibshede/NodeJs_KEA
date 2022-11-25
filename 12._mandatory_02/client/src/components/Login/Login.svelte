@@ -1,11 +1,10 @@
 <script>
-
     import { BASE_URL, global_user } from "../../store/globals.js";
 
     import { useNavigate, useLocation } from "svelte-navigator";
 
-	const navigate = useNavigate();
-	const location = useLocation();
+    const navigate = useNavigate();
+    const location = useLocation();
 
     async function login() {
         const user = {
@@ -28,9 +27,12 @@
             const access = 1;
             const email = user.email;
             $global_user = { email, access };
-            
+
             const from = ($location.state && $location.state.from) || "/";
             navigate(from, { replace: true });
+
+            // @ts-ignore
+            toastr.success("Loggedin", "You are now loggedin");
         }
     }
 </script>

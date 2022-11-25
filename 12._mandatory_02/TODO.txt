@@ -1,6 +1,5 @@
 Technical requirements:
     nodemaler
-    notifications
 
 
 Backend:

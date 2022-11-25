@@ -9,6 +9,8 @@
             email = user.email;
         });
     }
+
+    
 </script>
 
 <h1>Welcome {email}</h1>

@@ -9,6 +9,8 @@
     async function handleLogout() {
         $global_user = null;
         await fetch(`${$BASE_URL}/logout`);
+        // @ts-ignore
+        toastr.success("Logged out", "You are now logged out");
     }
 </script>
 
