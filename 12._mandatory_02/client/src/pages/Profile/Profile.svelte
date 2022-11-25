@@ -1,16 +1,8 @@
 <script>
-    import Loguout from "../../components/Logout/Logout.svelte";
+    import { get } from "svelte/store";
     import { global_user } from "../../store/globals.js";
 
-    let email;
-
-    $: if (email) {
-        global_user.subscribe((user) => {
-            email = user.email;
-        });
-    }
-
-    
+    let email = get(global_user).email;
 </script>
 
 <h1>Welcome {email}</h1>

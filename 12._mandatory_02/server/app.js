@@ -15,7 +15,6 @@ app.use(session({
   cookie: { secure: false } //false we are not using https, but http
 }));
 
-
 // ------------------ Routers ------------------ 
 import loginRouter from "./routers/LoginRouter.js";
 app.use(loginRouter);
@@ -30,7 +29,6 @@ const limiter = rateLimit({
   max: 80 // number of times before client has to wait 10 min
 });
 app.use(limiter);
-
 
 const PORT = 8080 || process.env.PORT;
 app.listen(PORT, () => console.log("The server is running on port", PORT));

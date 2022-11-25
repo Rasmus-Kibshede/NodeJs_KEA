@@ -11,6 +11,8 @@
         await fetch(`${$BASE_URL}/logout`);
         // @ts-ignore
         toastr.success("Logged out", "You are now logged out");
+
+        navigate(-1);
     }
 </script>
 
