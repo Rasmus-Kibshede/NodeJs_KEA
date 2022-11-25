@@ -1,27 +1,50 @@
 <script>
-  import Login from "../Login/Login.svelte";
-  import { Router, Link, Route } from "svelte-navigator";
-  import Home from "../../pages/Home/Home.svelte";
-  import PrivateRoute from "../../pages/PrivateRoute.svelte";
-  import Profile from "../../pages/Profile/Profile.svelte";
-  import Pokemon from "../../pages/Pokemon/Pokemon.svelte";
-  import Logout from "../Logout/Logout.svelte";
+  import { Router, Link, useMatch } from "svelte-navigator";
+
+  // TODO make Page Highlight
 </script>
 
-<Router>
-  <nav>
-    <Link to="/">Home</Link>
-    <Link to="/profile">Profile</Link>
-    <Link to="/pokemon">Pokemon</Link>
-  </nav>
+<header>
 
-  <div>
-    <Route path="/" component={Home} />
-    <Route path="/pokemon" component={Pokemon} />
-    <PrivateRoute path="/profile" let:location>
-      <Profile />
-      <Logout />
-    </PrivateRoute>
-    <Route path="login" component={Login} />
-  </div>
-</Router>
+  <img src="../../../public/pokeball.svg" alt="" width="100px">
+
+  <Router>
+    <nav>
+      <Link class="menuLink" to="/"><span class="menuLink">Home</span></Link>
+
+      <Link class="menuLink" to="/profile"
+        ><span class="menuLink">Profile</span></Link
+      >
+
+      <Link class="menuLink" to="/pokemon"
+        ><span class="menuLink">Pokemon</span></Link
+      >
+    </nav>
+  </Router>
+</header>
+
+<style>
+
+  img{
+    float: left;
+  }
+
+  nav{
+    margin: 30px;
+    padding: 20px;
+  }
+
+  .menuLink {
+    display: inline-block;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    font-size: 25px;
+  }
+
+  .menuLink:hover {
+    border-radius: 5px;
+    color: red;
+    cursor: url("../../../public/pokeball.svg"), auto;
+  }
+</style>
