@@ -1,3 +1,4 @@
+import dotenv from "dotenv/config";
 import express from "express";
 const app = express();
 
@@ -9,7 +10,7 @@ app.use(express.json());
 // ------------------ Session ------------------ 
 import session from "express-session";
 app.use(session({
-  secret: process.env.SESSION_SECRET || "Cat",
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true,
   cookie: { secure: false } //false we are not using https, but http
@@ -21,6 +22,9 @@ app.use(loginRouter);
 
 import pokemonRouter from "./routers/PokemonRouter.js";
 app.use(pokemonRouter);
+
+import signupRouter from "./routers/SigupRouter.js";
+app.use(signupRouter);
 
 // ------------------ Rate limiter ------------------ 
 import rateLimit from 'express-rate-limit';
