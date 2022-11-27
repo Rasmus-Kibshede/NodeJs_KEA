@@ -9,13 +9,13 @@ export async function sendMail(mailTo, aboutText) {
     const transporter = nodemailer.createTransport({
       service: 'hotmail',
       auth: {
-        user: 'keadat2021@hotmail.com',
+        user: process.env.EMAIL_ADDRESS,
         pass: process.env.MAILPASSWORD
       }
     });
 
     const mailOptions = {
-      from: 'keadat2021@hotmail.com',
+      from: process.env.EMAIL_ADDRESS,
       to: mailTo,
       subject: 'Pokemon website',
       text: aboutText
