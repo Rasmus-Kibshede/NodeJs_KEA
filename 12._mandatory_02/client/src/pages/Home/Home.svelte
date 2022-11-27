@@ -19,7 +19,7 @@
 
 <p>This is a website for the best trainers</p>
 
-<h4>Total pokemon count: {pokemonCount}</h4>
+<h4>Total pokemon count: <span style="color: red ;">{pokemonCount}</span></h4>
 
 <style>
 </style>

@@ -32,7 +32,7 @@
 
   .menuLink {
     display: inline-block;
-    width: 31.60%;
+    width: 31%;
     padding: 20px 10px;
     border-radius: 5px;
     color: white;

@@ -38,17 +38,16 @@ h1 {
 
 button {
   display: inline-block;
-  padding: 0.35em 1.2em;
-  border: 0.1em solid black;
-  margin: 0 0.3em 0.3em 0;
-  border-radius: 0.12em;
-  box-sizing: border-box;
+  padding: 5px 10px;
+  border: 1px solid black;
+  border-radius: 10px;
   text-decoration: none;
   font-family: "Roboto", sans-serif;
   font-weight: 300;
   color: #000;
   text-align: center;
-  transition: all 0.4s;
+  background-image: linear-gradient(to bottom right, white, red);
+  cursor: pointer;
 }
 
 button:hover {

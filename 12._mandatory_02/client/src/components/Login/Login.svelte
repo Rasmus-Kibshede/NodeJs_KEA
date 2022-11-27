@@ -75,4 +75,10 @@
 
 <!-- Forgot <a href="/"> password? </a> -->
 <style>
+    div {
+        display: grid;
+        justify-content: center;
+        justify-items: center;
+        row-gap: 10px;
+    }
 </style>

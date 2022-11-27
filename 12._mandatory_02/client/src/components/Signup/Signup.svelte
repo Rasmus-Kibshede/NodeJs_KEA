@@ -47,19 +47,19 @@
     <h1>Signup here</h1>
 
     <label for="signup_email">Email:</label>
-    <input type="email" id="signup_email" />
+    <input type="email" id="signup_email" placeholder="Enter Email" />
 
     <label for="signup_password">Password:</label>
-    <input type="text" id="signup_password" />
+    <input type="text" id="signup_password" placeholder="Enter Password" />
 
     <label for="signup_firstname">Firstname:</label>
-    <input type="text" id="signup_firstname" />
+    <input type="text" id="signup_firstname" placeholder="Enter Firstname" />
 
     <label for="signup_lastname">Lastname:</label>
-    <input type="text" id="signup_lastname" />
+    <input type="text" id="signup_lastname" placeholder="Enter Lastname" />
 
     <label for="signup_age">Age:</label>
-    <input type="number" id="signup_age" />
+    <input type="number" id="signup_age" placeholder="Age" />
 
     <button on:click={signup}>Signup</button>
 </div>
