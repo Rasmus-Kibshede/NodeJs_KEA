@@ -7,7 +7,6 @@
     onMount(async function () {
         const response = await fetch(`${$BASE_URL}/api/pokemon`);
         const result = await response.json();
-        console.log(result.pokemon.results);
         pokemonList = result.pokemon.results;
     });
 </script>

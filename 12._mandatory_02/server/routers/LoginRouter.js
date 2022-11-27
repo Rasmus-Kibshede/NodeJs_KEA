@@ -17,11 +17,14 @@ router.post("/login", async (req, res, next) => {
     //Database check
     const user = await db.get("SELECT * FROM users WHERE user_email=?", [req.body.email]);
 
+    let passwordMatch;
     if (user) {
-        const passwordMatch = passwordCompare(req.body.password, user.user_password);
-        if (passwordMatch) {
-            next();
-        }
+        passwordMatch = await passwordCompare(req.body.password, user.user_password);
+        console.log(passwordMatch);
+    }
+
+    if (passwordMatch) {
+        next();
     } else {
         res.status(400).send({ message: "Wrong email or password" });
     }

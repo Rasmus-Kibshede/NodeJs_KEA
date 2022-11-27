@@ -12,7 +12,8 @@
         // @ts-ignore
         toastr.success("Logged out", "You are now logged out");
 
-        navigate(-1);
+        const from = ($location.state && $location.state.from) || "/";
+        navigate(from, { replace: true });
     }
 </script>
 

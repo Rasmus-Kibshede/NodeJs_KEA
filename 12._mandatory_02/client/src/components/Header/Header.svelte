@@ -6,8 +6,6 @@
 
 <header>
 
-  <img src="../../../public/pokeball.svg" alt="" width="100px">
-
   <Router>
     <nav>
       <Link class="menuLink" to="/"><span class="menuLink">Home</span></Link>
@@ -25,18 +23,17 @@
 
 <style>
 
-  img{
-    float: left;
-  }
-
   nav{
-    margin: 30px;
-    padding: 20px;
+    margin: 50px 0;
+    background-color: rgba(102, 102, 102, 0.9);
+    border: solid 1px white;
+    border-radius: 10px;
   }
 
   .menuLink {
     display: inline-block;
-    padding: 10px;
+    width: 31.60%;
+    padding: 20px 10px;
     border-radius: 5px;
     color: white;
     font-size: 25px;
@@ -46,5 +43,7 @@
     border-radius: 5px;
     color: red;
     cursor: url("../../../public/pokeball.svg"), auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
   }
 </style>

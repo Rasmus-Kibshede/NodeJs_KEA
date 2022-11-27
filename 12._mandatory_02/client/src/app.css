@@ -1,14 +1,20 @@
-body {
-  background: #424242 url(https://assets.pokemon.com/static2/_ui/img/chrome/body_bg.png);
-  font-family: "Flexo-Regular", arial, sans-serif;
-  font-size: 16px;
-  color: #fff;
-  height: 100%;
-}
 *{
-  font-family: 'Secular One', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
+body {
+  /* background: #424242 url(https://assets.pokemon.com/static2/_ui/img/chrome/body_bg.png); */
+  background: #a6a6a6 url("../public/pokeball.svg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  font-size: 16px;
+  font-family: 'Secular One', sans-serif;
+  color: #fff;
+  height: 100%;
+  text-shadow: 1px 1px 1px black;
+}
 
 #app {
   max-width: 1280px;
@@ -28,23 +34,26 @@ a:hover {
 
 h1 {
   font-size: 3.2em;
-  line-height: 1.1;
 }
 
 button {
-  /* border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s; */
+  display: inline-block;
+  padding: 0.35em 1.2em;
+  border: 0.1em solid black;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  color: #000;
+  text-align: center;
+  transition: all 0.4s;
 }
 
 button:hover {
-  border-color: #646cff;
+  color: black;
+  background-image: linear-gradient(to bottom right, red, white);
 }
 
 

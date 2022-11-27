@@ -27,34 +27,48 @@
             body: JSON.stringify(user),
         });
 
+        const result = await response.json();
+        const message = result.message;
+
         if (response.ok) {
             const from = ($location.state && $location.state.from) || "/";
             navigate(from, { replace: true });
 
             // @ts-ignore
-            toastr.success("Signed up", "An email has been sendt to you");
+            toastr.success("Signed up", message);
+        } else {
+            // @ts-ignore
+            toastr.error("Error", message);
         }
     }
 </script>
 
-<h1>Signup here</h1>
+<div>
+    <h1>Signup here</h1>
 
-<label for="signup_email">Email:</label>
-<input type="email" id="signup_email" />
+    <label for="signup_email">Email:</label>
+    <input type="email" id="signup_email" />
 
-<label for="signup_password">Password:</label>
-<input type="text" id="signup_password" />
+    <label for="signup_password">Password:</label>
+    <input type="text" id="signup_password" />
 
-<label for="signup_firstname">Firstname:</label>
-<input type="text" id="signup_firstname" />
+    <label for="signup_firstname">Firstname:</label>
+    <input type="text" id="signup_firstname" />
 
-<label for="signup_lastname">Lastname:</label>
-<input type="text" id="signup_lastname" />
+    <label for="signup_lastname">Lastname:</label>
+    <input type="text" id="signup_lastname" />
 
-<label for="signup_age">Age:</label>
-<input type="text" id="signup_age" />
+    <label for="signup_age">Age:</label>
+    <input type="number" id="signup_age" />
 
-<button on:click={signup}>Signup</button>
+    <button on:click={signup}>Signup</button>
+</div>
 
 <style>
+    div {
+        display: grid;
+        justify-content: center;
+        justify-items: center;
+        row-gap: 10px;
+    }
 </style>

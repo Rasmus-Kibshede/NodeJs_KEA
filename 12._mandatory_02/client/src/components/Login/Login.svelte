@@ -14,25 +14,37 @@
             password: document.getElementById("login_password").value,
         };
 
-        let response = await fetch(`${$BASE_URL}/login`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json;charset=utf-8",
-            },
-            body: JSON.stringify(user),
-        });
+        console.log(user.password);
 
-        // checks if the server response with a ok and then sets a global user
-        if (response.ok) {
-            const access = 1;
-            const email = user.email;
-            $global_user = { email, access };
-
-            const from = ($location.state && $location.state.from) || "/";
-            navigate(from, { replace: true });
-
+        if (!user.email || !user.password) {
             // @ts-ignore
-            toastr.success("Loggedin", "You are now loggedin");
+            toastr.error("Error", "Fill out the blanks");
+        } else {
+            let response = await fetch(`${$BASE_URL}/login`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json;charset=utf-8",
+                },
+                body: JSON.stringify(user),
+            });
+
+            const result = await response.json();
+            const message = result.message;
+
+            // checks if the server response with a ok and then sets a global user
+            if (response.ok) {
+                const access = 1;
+                const email = user.email;
+                $global_user = { email, access };
+                const from = ($location.state && $location.state.from) || "/";
+                navigate(from, { replace: true });
+
+                // @ts-ignore
+                toastr.success("Loggedin", message);
+            } else {
+                // @ts-ignore
+                toastr.error("Error", message);
+            }
         }
     }
 </script>
@@ -59,28 +71,8 @@
     <button type="submit" on:click={login} class="button">Login</button>
 </div>
 
-
-<Link to="/signup">Sugnup</Link>
-
+<Link to="/signup">Signup</Link>
 
 <!-- Forgot <a href="/"> password? </a> -->
 <style>
-    .button {
-        display: inline-block;
-        padding: 0.35em 1.2em;
-        border: 0.1em solid black;
-        margin: 0 0.3em 0.3em 0;
-        border-radius: 0.12em;
-        box-sizing: border-box;
-        text-decoration: none;
-        font-family: "Roboto", sans-serif;
-        font-weight: 300;
-        color: #000;
-        text-align: center;
-        transition: all 0.4s;
-    }
-    .button:hover {
-        color: black;
-        background-image: linear-gradient(to bottom right, red, white);
-    }
 </style>

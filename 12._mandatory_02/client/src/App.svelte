@@ -1,6 +1,6 @@
 <script>
   import Login from "./components/Login/Login.svelte";
-  import { Router, Link, Route } from "svelte-navigator";
+  import { Router, Route } from "svelte-navigator";
   import Home from "./pages/Home/Home.svelte";
   import PrivateRoute from "./pages/PrivateRoute.svelte";
   import Profile from "./pages/Profile/Profile.svelte";
@@ -29,8 +29,10 @@
 <style>
   #content {
     padding: 20px;
-    background: #fff
-      url("https://assets.pokemon.com/static2/_ui/img/chrome/container_bg.png");
-    color: black;
+    /* background: #fff
+      url("https://assets.pokemon.com/static2/_ui/img/chrome/container_bg.png"); */
+    background-color: rgba(102, 102, 102, 0.9);
+    border-radius: 10px;
+    border: solid 1px white;
   }
 </style>
