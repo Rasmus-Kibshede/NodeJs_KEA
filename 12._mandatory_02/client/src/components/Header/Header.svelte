@@ -2,10 +2,11 @@
   import { Router, Link, useMatch } from "svelte-navigator";
 
   // TODO make Page Highlight
+
+
 </script>
 
 <header>
-
   <Router>
     <nav>
       <Link class="menuLink" to="/"><span class="menuLink">Home</span></Link>
@@ -22,8 +23,7 @@
 </header>
 
 <style>
-
-  nav{
+  nav {
     margin: 50px 0;
     background-color: rgba(102, 102, 102, 0.9);
     border: solid 1px white;
@@ -45,5 +45,10 @@
     cursor: url("../../../public/pokeball.svg"), auto;
     background-color: rgba(0, 0, 0, 0.6);
     border-radius: 10px;
+  }
+
+  .menuLink:active {
+    background-color: red;
+    color: black;
   }
 </style>

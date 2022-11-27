@@ -33,7 +33,12 @@ a:hover {
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: 55px;
+  color: rgb(245,0,0);
+}
+
+h4{
+  font-size: 20px ;
 }
 
 button {
@@ -53,6 +58,10 @@ button {
 button:hover {
   color: black;
   background-image: linear-gradient(to bottom right, red, white);
+}
+
+input{
+  padding: 5px;
 }
 
 
