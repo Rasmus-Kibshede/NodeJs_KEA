@@ -1,0 +1,17 @@
+Relational databases vs. mongodb
+
+Table       -       Collections 
+Row         -       Document
+Coluoms     -       Key
+Cells       -       Value
+
+
+CRUD
+
+SELECT      -       find()
+UPDATE      -       updateOne()
+INSERT      -       insert() / insertOne()
+DELETE      -       delete()
+
+show dbs
+
