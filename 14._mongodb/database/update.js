@@ -13,5 +13,3 @@ const {matchedCount} = await db.salesPeople.updateOne(
 );
 
 console.log(matchedCount);
-
-
