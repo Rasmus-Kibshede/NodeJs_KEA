@@ -10,7 +10,16 @@ const server = http.createServer(app);
 const io = new Server(server);
 
 io.on("connection", (socket) => {
-    console.log(`A socket connected on id ${socket.id}`);
+
+    socket.on("client choose a color", (data) => {
+        //socket.broadcast.emit("this is the new color", data);
+
+        //socket.emit("this is the new color", data);
+
+        io.emit("this is the new color", data);
+    });
+
+
 
     io.on("disconnect", () => {
         console.log(`Socket ${socket.id} left`);
