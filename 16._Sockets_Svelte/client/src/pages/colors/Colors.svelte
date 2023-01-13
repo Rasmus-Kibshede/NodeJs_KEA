@@ -6,7 +6,7 @@
     const socket = io("http://127.0.0.1:8080");
 
     socket.on("update the color", (data) => {
-        //console.log(data.data);
+        console.log(data.data);
 
         // don't do this!!!
         document.body.style.backgroundColor = data.data;

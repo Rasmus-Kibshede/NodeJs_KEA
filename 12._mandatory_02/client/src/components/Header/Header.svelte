@@ -2,8 +2,6 @@
   import { Router, Link, useMatch } from "svelte-navigator";
 
   // TODO make Page Highlight
-
-
 </script>
 
 <header>

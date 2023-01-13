@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color craze</title>
+</head>
+
+<body>
+
+    <h1>Crazy color page</h1>
+
+    <input type="color" id="color-picker">
+    <button onclick="sendColor()">Send color</button>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+
+        // function sendColor() {
+        //     const color = document.getElementById("color-picker").value;
+            
+        //     socket.emit("client choose a color", { data: color });
+        // }
+
+        // socket.on("this is the new color", (data) => {
+        //     document.body.style.backgroundColor = data.data;
+        // });
+    </script>
+
+
+</body>
+
+</html>
